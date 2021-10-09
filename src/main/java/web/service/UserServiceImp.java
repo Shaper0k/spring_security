@@ -49,7 +49,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     @Transactional
-    public User findUserByUsername(String username) {
-        return userDao.findUserByUsername(username);
+    public User findUserByUsername(String login) {
+        return userDao.findUserByUsername(login);
     }
 }
