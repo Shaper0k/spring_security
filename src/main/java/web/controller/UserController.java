@@ -49,12 +49,12 @@ public class UserController {
 	@PostMapping("/admin/user-create")
 	public String addUser(User user){
 		userService.addUser(user);
-		return "user-list";
+		return "redirect:/user-list";
 	}
 	@GetMapping("/admin/user-delete/{id}")
 	public String deleteUser(@PathVariable("id") Long id){
 		userService.deleteUser(id);
-		return "user-list";
+		return "redirect:/user-list";
 	}
 
 	@GetMapping("/admin/user-update")
@@ -66,7 +66,7 @@ public class UserController {
 	@PatchMapping("/admin/user-update")
 	public String userUpdate (User user){
 		userService.updateUser(user);
-		return "user-list";
+		return "redirect:/user-list";
 	}
 
 }
