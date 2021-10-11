@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin panel</title>
+</head>
+<style>
+    .custab{
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5% 0;
+        box-shadow: 3px 3px 2px #ccc;
+        transition: 0.5s;
+    }
+    .custab:hover{
+        box-shadow: 3px 3px 0px transparent;
+        transition: 0.5s;
+    }
+</style>
+<a href="/user" class="=btn btn-primary btn-xxl pull-left"><b>***</b> Личный профиль</a>
+<br>
+
+            <a href="/logout" class="=btn btn-primary btn-xs pull-left"><b>*</b> Logout</a>
+            <a href="admin/add" class="btn btn-primary btn-xs pull-right"><b>+</b> Добавить нового пользователя</a>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>e-mail</th>
+                <th>Телефон</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tr th:each="User, state : ${users}" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+                <td th:text="${User.id}">ID</td>
+                <td th:text="${User.firstName}">Имя</td>
+                <td th:text="${User.lastName}">Фамилия</td>
+                <td th:text="${User.email}">e-mail</td>
+                <td th:text="${User.phoneNumber}">Номер телефона</td>
+                <td>
+                    <form th:action="@{/admin/edit(id=${User.id})}" th:object="${User}">
+                    <intut type="hidden" name="id" th:value="${User.id}">
+                        <button type="submit" name="id" th:value="${User.id}"><i class="glyphicon glyphicon-edit">edit</i></button>
+                    </form>
+
+                    <form th:action="@{/admin/delete(id=${User.id})}" th:object="${User}">
+                        <input type="hidden" name="id" th:value="${User.id}">
+                        <button type="submit" name="id" th:value="${User.id}"><i class="glyphicon glyphicon-remove">delete</i></button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</html>
+
+
+
+
+

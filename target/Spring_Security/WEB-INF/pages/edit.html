@@ -1,44 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
 </head>
 <body>
-<div align="center">
-  <h2>Edit Page</h2>
-  <form action="/edit" method="post">
-    <table border="0" cellpadding="5">
-      <tr>
-        <td>ID:</td>
-        <td><input type="number" th:field="*{user.id}" readonly/></td>
-      </tr>
-      <tr>
-        <td>login:</td>
-        <td><input type="text" th:field="*{user.username}"/></td>
-      </tr>
-      <tr>
-        <td>password:</td>
-        <td><input type="text" th:field="*{user.password}"/></td>
-      </tr>
-      <tr>
-        <td>Name:</td>
-        <td><input type="text" th:field="*{user.firstName}"/></td>
-      </tr>
-      <tr>
-        <td>Surname:</td>
-        <td><input type="text" th:field="*{user.lastName}"/></td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td><input type="text" th:field="*{user.email}"/></td>
-      </tr>
-    </table>
-    <br/>
-    <td colspan="2"><input type="submit" value="Edit"></td>
-    <br/>
-    <br/>
-    <a th:href="@{/logout}">logout</a>
-  </form>
-</div>
+<form action="#" th:action="@{/admin/edit}" th:object="${user}" method="post">
+
+    <label for="firstName">Name</label>
+    <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">
+    </br>
+    </br>
+    <label for="username">Username</label>
+    <input type="text" th:field="*{username}" id="username" placeholder="Username">
+    </br>
+    </br>
+    <label for="lastName">Surname</label>
+    <input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">
+    </br>
+    </br>
+    <label for="password">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="Password">
+    </br>
+    </br>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    </br>
+    <input type="submit" value="Update User">
+</form>
 </body>
 </html>
+
+
