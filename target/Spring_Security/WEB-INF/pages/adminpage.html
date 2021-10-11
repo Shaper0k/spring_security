@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+  <style type="text/css">
+    .tg {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border-color: #ccc;
+    }
+
+    .tg td {
+      front-familly: Arial, sans-serif;
+      front-size: 14px;
+      padding: 10px 5px;
+      border-style: solid;
+      border-width: 1px;
+      overflow: hidden;
+      word-break: normal;
+      border-color: #ccc;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .tg th {
+      front-familly: Arial, sans-serif;
+      front-size: 14px;
+      padding: 10px 5px;
+      border-style: solid;
+      border-width: 1px;
+      overflow: hidden;
+      word-break: normal;
+      border-color: #ccc;
+      color: #333;
+      background-color: #f0f0f0;
+    }
+
+    .tg .tg-4eph {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+<!--    tg стиль который указан выше-->
+<div th:align="center" class="tg">
+  <a th:href="@{/user}" class="=btn btn-primary" role="button"><b>***</b> Profile</a>
+  <h2>User table</h2>
+  <table border="1" cellpadding="5">
+    <a th:href="@{/logout}" class="=btn btn-primary" role="button"><b>*</b> Logout</a>
+    <a th:href="@{/admin/new}" class="btn btn-primary" role="button"><b>+</b> Add new user</a>
+    <tr>
+      <th>ID</th>
+      <th>Login</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>e-mail</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr th:each="user : ${allUsers}">
+      <td th:text="${user.id}">ID</td>
+      <td th:text="${user.username}">Login</td>
+      <td th:text="${user.firstName}">Name</td>
+      <td th:text="${user.lastName}">Surname</td>
+      <td th:text="${user.email}">e-mail</td>
+      <td><a th:href="@{/admin/edit/{id}(id=${user.id})}">Edit</a></td>
+      <td><a th:href="@{/admin/remove/{id}(id=${user.id})}">Delete</a></td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
+</div>
+</body>
+</html>

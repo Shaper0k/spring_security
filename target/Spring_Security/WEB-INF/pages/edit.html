@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+</head>
+<body>
+<div align="center">
+  <h2>Edit Page</h2>
+  <form action="/edit" method="post">
+    <table border="0" cellpadding="5">
+      <tr>
+        <td>ID:</td>
+        <td><input type="number" th:field="*{user.id}" readonly/></td>
+      </tr>
+      <tr>
+        <td>login:</td>
+        <td><input type="text" th:field="*{user.username}"/></td>
+      </tr>
+      <tr>
+        <td>password:</td>
+        <td><input type="text" th:field="*{user.password}"/></td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" th:field="*{user.firstName}"/></td>
+      </tr>
+      <tr>
+        <td>Surname:</td>
+        <td><input type="text" th:field="*{user.lastName}"/></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" th:field="*{user.email}"/></td>
+      </tr>
+    </table>
+    <br/>
+    <td colspan="2"><input type="submit" value="Edit"></td>
+    <br/>
+    <br/>
+    <a th:href="@{/logout}">logout</a>
+  </form>
+</div>
+</body>
+</html>
